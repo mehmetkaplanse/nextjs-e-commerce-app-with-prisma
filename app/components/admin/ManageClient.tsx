@@ -76,6 +76,7 @@ const ManageClient: React.FC<ManageClientProps> = ({ products }) => {
       .delete(`/api/product/${id}`)
       .then(() => {
         toast.success('Ürün başarıyla silindi.')
+        handleDeleteImage()
       })
       .catch((error) => {
         console.log(error);

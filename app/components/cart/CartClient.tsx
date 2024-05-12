@@ -44,10 +44,10 @@ const CartClient = () => {
               key={cart.id}
               className="flex items-center justify-between text-center mb-2"
             >
-              <div className="w-1/5 flex items-center justify-center">
+              <div className="w-1/5 flex items-center justify-center max-h-[200px}">
                 <Image
                   src={
-                    "https://reeder.com.tr/media/catalog/product/cache/534e366b37eaf644172e01da0dbaa73f/s/1/s19_max_pro_-_mavi_-_01.png"
+                    cart?.image
                   }
                   width={100}
                   height={100}

@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import PageContainer from "../containers/PageContainer";
 import Counter from "../general/Counter";
@@ -43,7 +42,7 @@ const DetailClient = ({ product }: { product: any }) => {
       setDisplayButton(true);
     }
   }, [cardProducts]);
-
+  
   const increaseFunc = () => {
     if (cardProduct.quantity == 10) return;
     setCardProduct((prev) => ({ ...prev, quantity: prev.quantity + 1 }));
@@ -63,9 +62,7 @@ const DetailClient = ({ product }: { product: any }) => {
         <div className="block md:flex gap-10 justify-center">
           <div className="relative h-[400px] w-[400px]">
             <Image
-              src={
-                "https://reeder.com.tr/media/catalog/product/cache/534e366b37eaf644172e01da0dbaa73f/s/1/s19_max_pro_-_mavi_-_01.png"
-              }
+              src={product?.image}
               fill
               alt=""
             />
@@ -76,7 +73,7 @@ const DetailClient = ({ product }: { product: any }) => {
             <div className="text-slate-500">{product?.description}</div>
             <div className="flex gap-2">
               <div>STOK DURUMU:</div>
-              {product.inStock ? (
+              {product && product.inStock ? (
                 <div className="text-green-500">Ürün Stokta Mevcut</div>
               ) : (
                 <div className="text-red-500">Ürün Stokta Bulunmamaktadır.</div>

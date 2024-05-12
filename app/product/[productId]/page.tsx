@@ -1,14 +1,14 @@
+import getProductById from "@/app/actions/getProduct";
 import DetailClient from "@/app/components/detail/DetailClient";
-import { products } from "@/utils/Products";
 
 type DetailProps = {
   productId: string
 }
 
-const Detail = ({params}: {params: DetailProps}) => {
+const Detail = async ({params}: {params: DetailProps}) => {
 
     const {productId} = params;
-    const product = products.find((item) => item.id === productId);    
+    const product = await getProductById({productId: productId})
 
   return (
     <div>

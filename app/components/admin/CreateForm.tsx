@@ -22,10 +22,12 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import firebaseApp from "@/libs/firebase";
+const { v4: uuidv4 } = require('uuid');
 
 const CreateForm = () => {
   const router = useRouter();
   const [img, setImg] = useState<File | null>(null);
+  const randomId = uuidv4();
 
   const categoryList = [
     {
@@ -82,7 +84,7 @@ const CreateForm = () => {
 
       try {
         const storage = getStorage(firebaseApp);
-        const storageRef = ref(storage, "images/shop.jpg");
+        const storageRef = ref(storage, `images/${randomId}.jpg`);
 
         const uploadTask = uploadBytesResumable(storageRef, img);
 
